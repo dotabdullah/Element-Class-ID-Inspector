@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Packed extension build artifacts
+*.zip
+*.crx
+*.pem
+
+# Node (if you ever add build tooling)
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log

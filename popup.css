@@ -1,0 +1,244 @@
+/* popup.css — Element-Class-ID-Inspector
+   Developed by XpertsWP | info@xpertswp.com | +923111765486
+
+   Token system (kept intentional, not default dark-mode-#111):
+   --bg-navy:        #0c1220   deep navy, echoes the "X" mark in the logo
+   --surface:        #131b2e   card surface, one step up from bg
+   --surface-raised: #1a2440   hover/row surface
+   --hairline:       rgba(255,255,255,0.08)
+   --accent-red:     #e0202f   XpertsWP red, used sparingly (toggle + links)
+   --accent-red-dim: rgba(224,32,47,0.16)
+   --text-primary:   #e8eaf0
+   --text-muted:     #8892a8
+   --text-faint:     #5b6480
+*/
+
+:root {
+  --bg-navy: #0c1220;
+  --surface: #131b2e;
+  --surface-raised: #1a2440;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --accent-red: #e0202f;
+  --accent-red-dim: rgba(224, 32, 47, 0.16);
+  --text-primary: #e8eaf0;
+  --text-muted: #8892a8;
+  --text-faint: #5b6480;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  background: var(--bg-navy);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header ------------------------------------------------------------ */
+
+.popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px 12px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-navy) 100%);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.popup__title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.popup__icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.popup__title {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: "SFMono-Regular", Consolas, Menlo, Monaco, monospace;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup__status {
+  margin: 8px 16px 0;
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: "SFMono-Regular", Consolas, Menlo, Monaco, monospace;
+}
+
+.popup__status--on {
+  color: var(--accent-red);
+}
+
+/* --- Toggle switch -------------------------------------------------------
+   The signature element of this popup: rather than a stock green iOS-style
+   switch, it lights up in the brand red when active, with a soft glow,
+   tying the control directly to the XpertsWP mark. */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch__track {
+  display: block;
+  width: 38px;
+  height: 22px;
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.switch__thumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  transition: transform 0.18s ease, background 0.15s ease;
+}
+
+.switch input:checked + .switch__track {
+  background: var(--accent-red-dim);
+  border-color: var(--accent-red);
+  box-shadow: 0 0 10px rgba(224, 32, 47, 0.35);
+}
+
+.switch input:checked + .switch__track .switch__thumb {
+  background: var(--accent-red);
+  transform: translateX(16px);
+}
+
+.switch input:focus-visible + .switch__track {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* --- Sections ------------------------------------------------------------ */
+
+.popup__divider {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 12px 0;
+}
+
+.popup__section {
+  padding: 0 16px;
+}
+
+.popup__section-title {
+  margin: 0 0 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-faint);
+}
+
+.popup__text {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* --- Developer info rows -------------------------------------------------- */
+
+.popup__section--dev {
+  padding-bottom: 14px;
+}
+
+.dev-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--hairline);
+}
+
+.dev-row:last-child {
+  border-bottom: none;
+}
+
+.dev-row__label {
+  font-size: 11px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.dev-row__value {
+  font-size: 12px;
+  color: var(--text-primary);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "SFMono-Regular", Consolas, Menlo, Monaco, monospace;
+}
+
+.dev-row__link {
+  color: var(--accent-red);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dev-row__link:hover {
+  text-decoration: underline;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.popup__footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--hairline);
+}
+
+.popup__footer-logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.popup__footer-text {
+  font-size: 10px;
+  color: var(--text-faint);
+}

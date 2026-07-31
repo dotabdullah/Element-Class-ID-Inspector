@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Element-Class-ID-Inspector</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup">
+
+    <!-- Header: name + ON/OFF toggle -->
+    <header class="popup__header">
+      <div class="popup__title-group">
+        <img src="icons/icon48.png" alt="Element-Class-ID-Inspector" class="popup__icon" />
+        <h1 class="popup__title">Element-Class-ID-Inspector</h1>
+      </div>
+
+      <label class="switch" title="Toggle hover inspector">
+        <input type="checkbox" id="toggle-active" />
+        <span class="switch__track">
+          <span class="switch__thumb"></span>
+        </span>
+      </label>
+    </header>
+
+    <p class="popup__status" id="status-text">Inspector is OFF</p>
+
+    <hr class="popup__divider" />
+
+    <!-- Section 1: What does this extension do -->
+    <section class="popup__section">
+      <h2 class="popup__section-title">What's the use of this extension?</h2>
+      <p class="popup__text">
+        Instantly inspect HTML tags, IDs, and CSS classes by simply hovering
+        over any element on a webpage — no DevTools required.
+      </p>
+    </section>
+
+    <hr class="popup__divider" />
+
+    <!-- Section 2: Developer info -->
+    <section class="popup__section popup__section--dev">
+      <h2 class="popup__section-title">Developer Information</h2>
+
+      <div class="dev-row">
+        <span class="dev-row__label">Developed by</span>
+        <span class="dev-row__value">XpertsWP</span>
+      </div>
+
+      <div class="dev-row">
+        <span class="dev-row__label">Website</span>
+        <a
+          href="https://xpertswp.com/"
+          id="link-website"
+          class="dev-row__value dev-row__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >xpertswp.com</a>
+      </div>
+
+      <div class="dev-row">
+        <span class="dev-row__label">Email</span>
+        <a
+          href="mailto:info@xpertswp.com"
+          id="link-email"
+          class="dev-row__value dev-row__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >info@xpertswp.com</a>
+      </div>
+
+      <div class="dev-row">
+        <span class="dev-row__label">Phone</span>
+        <a
+          href="tel:+923111765486"
+          id="link-phone"
+          class="dev-row__value dev-row__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >+92 311 1765486</a>
+      </div>
+    </section>
+
+    <footer class="popup__footer">
+      <img src="icons/logo.png" alt="XpertsWP" class="popup__footer-logo" />
+      <span class="popup__footer-text">© <span id="year"></span> XpertsWP. All rights reserved.</span>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Element-Class-ID-Inspector",
+  "version": "1.0.0",
+  "description": "Hover over any element on a page to inspect its tag name, ID, and classes. Developed by XpertsWP.",
+  "author": "XpertsWP (info@xpertswp.com)",
+  "permissions": ["storage", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Element-Class-ID-Inspector — by XpertsWP",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/logo.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
