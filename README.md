@@ -1,3 +1,4 @@
+![Element-Class-ID-Inspector](element-class-id-inspector-img.png)
 # Element-Class-ID-Inspector
 
 A lightweight Chrome extension (Manifest V3) that lets you instantly
